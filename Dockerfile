@@ -1,4 +1,3 @@
-# FROM java:openjdk-7-jre
 FROM java:openjdk-7-jdk
 
 MAINTAINER Lisa Stillwell <lisa@renci.org>

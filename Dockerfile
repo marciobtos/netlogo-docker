@@ -72,26 +72,10 @@ ENV R_LIBS_USER /usr/lib/R/library:/usr/lib/R/site-library:/usr/local/lib/R/site
 
 ## Now install R and littler, and create a link for littler in /usr/local/bin
 ## Also set a default CRAN repo, and make sure littler knows about it too
-RUN apt-get update \
-	&& apt-get install -y --no-install-recommends \
-		littler \
-		r-cran-littler \
-		r-base=${R_BASE_VERSION}* \
-		r-base-dev=${R_BASE_VERSION}* \
-		r-recommended=${R_BASE_VERSION}* \
-	&& echo 'options(repos = c(CRAN = "https://cran.rstudio.com/"), download.file.method = "libcurl")' >> /etc/R/Rprofile.site \
-	&& echo 'source("/etc/R/Rprofile.site")' >> /etc/littler.r \
-	&& ln -s /usr/share/doc/littler/examples/install.r /usr/local/bin/install.r \
-	&& ln -s /usr/share/doc/littler/examples/install2.r /usr/local/bin/install2.r \
-	&& ln -s /usr/share/doc/littler/examples/installGithub.r /usr/local/bin/installGithub.r \
-	&& ln -s /usr/share/doc/littler/examples/testInstalled.r /usr/local/bin/testInstalled.r \
-	&& ln -s /usr/lib/jvm/java-7-openjdk-amd64 /usr/lib/jvm/default-java \
-	&& install.r docopt \
-	&& rm -rf /tmp/downloaded_packages/ /tmp/*.rds \
-	&& rm -rf /var/lib/apt/lists/*
+# removed: there is no need for this package by now
 
 # install package rJava
-RUN /usr/local/bin/install.r rJava bnlearn readr
+
 
 # For debugging
 #CMD ["/bin/bash"]

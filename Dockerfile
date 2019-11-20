@@ -1,4 +1,5 @@
 FROM java:openjdk-7-jdk
+FROM eneiascs/dohko-job-ubuntu:1.0.0
 
 MAINTAINER Lisa Stillwell <lisa@renci.org>
 # See https://github.com/NetLogo/NetLogo/wiki/Controlling-API
